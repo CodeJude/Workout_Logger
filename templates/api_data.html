@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>API Data</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- My CSS styles -->
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>API Data</h1>
+        <table class="table table-striped mt-4">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Exercise</th>
+                    <th>Duration (min)</th>
+                    <th>Calories</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for exercise in data.workouts %}
+                    <tr>
+                        <td>{{ exercise.date }}</td>
+                        <td>{{ exercise.time }}</td>
+                        <td>{{ exercise.exercise }}</td>
+                        <td>{{ exercise.duration }}</td>
+                        <td>{{ exercise.calories }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center mt-3">
+            <form action="/" method="get" class="d-inline-block mr-2">
+                <button type="submit" class="btn btn-primary">Home</button>
+            </form>
+            <a href="https://api.sheety.co/929885b185c91a829b0521e7a7090ea6/myWorkoutLog/workouts"
+                class="btn btn-primary" target="_blank">API Link</a>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+

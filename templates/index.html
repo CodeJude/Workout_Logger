@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Workout Log</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Workout Log</h1>
+        <form action="/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exerciseText">Tell me which exercises you did:</label>
+                <input type="text" placeholder="Eg. I cycled for 2 hours and hiked for 30 minutes" class="form-control"
+                    id="exerciseText" name="exercise_text" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="weightKg">Weight (kg):</label>
+                <input type="number" class="form-control" id="weightKg" name="weight_kg" min="1" step="1" required>
+            </div>
+            <div class="form-group">
+                <label for="heightCm">Height (cm):</label>
+                <input type="number" class="form-control" id="heightCm" name="height_cm" min="1" step="1" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" min="1" step="1" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+            <a href="/fetch" class="btn btn-secondary btn-fetch">Fetch API Data</a>
+        </form>
+    </div>
+</body>
+
+</html>
